@@ -1,6 +1,7 @@
+export const dynamic = "force-dynamic"
+
 import { GetUserCollection } from '@/Services/CollectionServices'
 import CollectionsView from '@/views/pages/Collections'
-import { Grid } from '@mui/material'
 import React from 'react'
 
 const Collections = async() => {

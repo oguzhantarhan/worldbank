@@ -1,4 +1,4 @@
-
+"use server"
 import { auth } from '@/auth'
 import AuthRedirect from '@/components/AuthRedirect'
 import { ChildrenType } from '@/types/types'

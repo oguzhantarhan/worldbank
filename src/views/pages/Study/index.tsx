@@ -22,7 +22,6 @@ type Props = {
 const StudyView = ({ collectionList }: Props) => {
   const defaultList = { data: [], error: false, errorMessage: "" };
   const [currentList, setCurrentList] = useState(collectionList || defaultList);
- const [se]=useState()
 
   useEffect(() => {
     if (currentList.error) {

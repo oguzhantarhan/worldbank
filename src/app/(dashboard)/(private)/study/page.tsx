@@ -1,7 +1,7 @@
-import FlashCard from '@/components/flash-card/flashCard'
+export const dynamic = "force-dynamic"
+
 import { GetUserCollection } from '@/Services/CollectionServices'
 import StudyView from '@/views/pages/Study'
-import { Grid } from '@mui/material'
 import React from 'react'
 
 const Card = async() => {
