@@ -3,8 +3,14 @@ import CardsView from '@/views/pages/Cards'
 import { Grid } from '@mui/material'
 import React from 'react'
 
-const Card = async ({ params }: { params: { id: number } }) => {
-  const { id } = params
+type Props = {
+  params: {
+    id: string
+  }
+}
+
+const Card = async ({ params }: Props) => {
+  const id = Number(params.id)
   const data = await GetCardsByColelctionId(id)
 
   return (
