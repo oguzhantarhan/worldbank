@@ -1,0 +1,76 @@
+:root {
+  --primary-bg: #1e1e2f; /* Koyu mor tonunda bir arka plan */
+  --primary-text: #eaeaea; /* Açık metin rengi */
+  --secondary-bg: #2a2a40; /* Daha açık bir koyu ton */
+  --accent-color: #ff6f61; /* Turuncu/kırmızı vurgulu */
+  --hover-color: #d65a4a; /* Daha koyu bir vurgulu hover rengi */
+}
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  line-height: 1.6;
+}
+
+header {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+main {
+  margin: 2rem;
+  padding: 1rem;
+  background-color: var(--secondary-bg);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+button {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--hover-color);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--hover-color);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--secondary-bg);
+  color: var(--primary-text);
+  font-size: 0.9rem;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--primary-bg) inset !important; /* Adjust background color */
+  -webkit-text-fill-color: white !important; /* Adjust text color */
+  transition: background-color 5000s ease-in-out 0s !important; /* Prevent flashing */
+}
+
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px var(--primary-bg) inset !important;
+  -webkit-text-fill-color: white !important;
+}
