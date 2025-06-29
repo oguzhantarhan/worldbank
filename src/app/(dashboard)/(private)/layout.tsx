@@ -13,7 +13,7 @@ const Layout =async ({ children }: Props) => {
 const session=await auth()
   return (
     <Providers >
-        <AuthGuard >
+        <AuthGuard  >
           <ResponsiveAppBar userType={session?.user.userType??""}/>
           {children}
          
