@@ -1,20 +1,18 @@
-"use server"
+"use client"
 
-import { auth, signOut } from "@/auth"
-import { redirect } from "next/navigation"
+import { useEffect } from "react"
+import { useRouter } from "next/navigation"
 
+const Logout = () => {
+  const router = useRouter()
 
+  useEffect(() => {
+    fetch("/api/auth/logout").catch(() => {
+      router.push("/")
+    })
+  }, [])
 
-
-
-const Logout = async() => {
-    const session=await auth()
- if (!!session) {
-    await signOut({redirect:true,redirectTo:"/login"})
- }
-   else
-    redirect("/")
   return null
 }
 
-export default Logout 
+export default Logout

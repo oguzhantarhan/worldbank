@@ -20,7 +20,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import AddIcon from "@mui/icons-material/Add";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import AddEditCollectionDialog from "@/components/dialogs/add-edit-collection";
 import { DeleteCollection } from "@/Services/CollectionServices";
 
@@ -29,16 +29,13 @@ type Props = {
 };
 
 const CollectionsView = ({ collectionList }: Props) => {
+  const router = useRouter();
   const defaultList = { data: [], error: false, errorMessage: "" };
   const [currentList, setCurrentList] = useState(collectionList || defaultList);
   const [openDialog, setOpenDialog] = useState(false);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
-  const [selectedCollection, setSelectedCollection] = useState<
-    undefined | CollectionType
-  >(undefined);
-  const [collectionToDelete, setCollectionToDelete] = useState<number | null>(
-    null
-  );
+  const [selectedCollection, setSelectedCollection] = useState<undefined | CollectionType>(undefined);
+  const [collectionToDelete, setCollectionToDelete] = useState<number | null>(null);
 
   useEffect(() => {
     if (currentList.error) {
@@ -107,7 +104,6 @@ const CollectionsView = ({ collectionList }: Props) => {
                   position: "relative",
                 }}
               >
-                {/* Edit Icon */}
                 <IconButton
                   sx={{
                     position: "absolute",
@@ -127,7 +123,6 @@ const CollectionsView = ({ collectionList }: Props) => {
                   <EditIcon color="primary" />
                 </IconButton>
 
-                {/* Delete Icon */}
                 <IconButton
                   sx={{
                     position: "absolute",
@@ -167,7 +162,7 @@ const CollectionsView = ({ collectionList }: Props) => {
                   sx={{ justifyContent: "center", paddingBottom: 2 }}
                 >
                   <Button
-                    onClick={() => redirect(`/${collection.id}/cards`)}
+                    onClick={() => router.push(`/${collection.id}/cards`)}
                     color="primary"
                     variant="contained"
                   >
@@ -189,7 +184,6 @@ const CollectionsView = ({ collectionList }: Props) => {
         setCollectionList={setCurrentList}
       />
 
-      {/* Delete Confirmation Dialog */}
       <Dialog
         open={deleteDialogOpen}
         onClose={() => setDeleteDialogOpen(false)}

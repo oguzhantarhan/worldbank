@@ -12,14 +12,14 @@ import {
 
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { redirect } from "next/navigation";
-
+import { useRouter } from "next/navigation";
 
 type Props = {
   collectionList: DataErrorType<CollectionType[]>;
 };
 
 const StudyView = ({ collectionList }: Props) => {
+  const router = useRouter();
   const defaultList = { data: [], error: false, errorMessage: "" };
   const [currentList, setCurrentList] = useState(collectionList || defaultList);
 
@@ -28,9 +28,6 @@ const StudyView = ({ collectionList }: Props) => {
       toast.error(currentList.errorMessage);
     }
   }, [currentList]);
-
-
-
 
   return (
     <Grid container>
@@ -77,8 +74,8 @@ const StudyView = ({ collectionList }: Props) => {
                   sx={{ justifyContent: "center", paddingBottom: 2 }}
                 >
                   <Button
-                    onClick={()=>{
-                        redirect(`/${collection.id}/study-dashboard`)
+                    onClick={() => {
+                      router.push(`/${collection.id}/study-dashboard`);
                     }}
                     color="primary"
                     variant="contained"
@@ -89,12 +86,8 @@ const StudyView = ({ collectionList }: Props) => {
               </Card>
             </Grid>
           ))
-        ) :<></>}
+        ) : null}
       </Grid>
-
- 
-
-
     </Grid>
   );
 };
